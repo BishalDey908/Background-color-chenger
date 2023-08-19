@@ -1,0 +1,230 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Pangolin&display=swap" rel="stylesheet">
+    <style>
+        body {
+            font-family: 'Pangolin', cursive;
+        }
+        .con{
+            height: 30%;
+            width: 60%;
+            background-color: rgb(182, 209, 209);
+            text-align: center;
+            margin-top: 18%;
+            margin-left: 22%;
+            border-radius: 5px;
+            box-shadow: 20px 20px 50px grey;
+        }
+        .box{
+            height: 120px;
+            width: 120px;
+            border-radius: 5px;
+            margin: auto;
+            box-shadow: 20px 20px 50px grey;
+            
+        }
+        .color-box{
+            display: flex;
+        }
+        .p1{
+            background-color: blue;
+            
+        }
+        .p2{
+            background-color: greenyellow;
+        }
+        .p3{
+            background-color: orange;
+        }
+        .p4{
+            background-color: aqua;
+        }
+        .button{
+            margin-top: 2%;
+            margin-bottom: 2%;
+            font-size: 20px;
+            font-family: 'Pangolin', cursive;
+        }
+        h1{
+            padding-top: 3%;
+            padding-bottom: 3%;
+            height: 20%;
+            
+        }
+
+        @media(max-width:650px){
+            .con{
+                margin-top: 12%;
+                margin-left: 10%;
+                width: 80%;
+            }
+            .color-box{
+                display: flex;
+                flex-direction: column;
+            }
+            .box{
+                margin-bottom: 5%;
+            }
+            h1{
+                font-size: 20px;
+                height: 40px;
+            }
+            .button{
+                margin-top: 4%;
+                margin-bottom: 5%;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="con">
+            <h1>COLOUR SCHEME SWITCHER</h1>
+            <div class="color-box">
+            <div class="box 1 p1" ></div>
+            <div class="box 2 p2" ></div>
+            <div class="box 3 p3" ></div>
+            <div class="box 4 p4" ></div>
+            </div>
+            <button class="button"  onclick="load()">Reset</button>
+    </div>
+</body>
+<script>
+    function load(){
+        location.reload()
+        let sound = new Audio("./click.wav")
+        sound.play()
+    }
+
+    let p = document.querySelector(".color-box")
+    let s= p.childNodes
+    
+
+    let text=document.querySelector("h1")
+    let picker =document.querySelector(".p1")
+    picker.addEventListener("click",()=>{
+        document.body.style.backgroundColor="blue"
+        picker.style.backgroundColor="white"
+        
+        
+
+        let child =picker.nextElementSibling
+        console.log(child)
+        if(child.style.backgroundColor==="white"){
+            child.style.backgroundColor="green"
+        }
+
+        text.textContent=`Background color changed to blue`
+        
+        if(s[7].style.backgroundColor==="white"){
+            s[7].style.backgroundColor ="aqua";
+        }
+        if(s[5].style.backgroundColor==="white"){
+            s[5].style.backgroundColor ="orange";
+        }
+        if(s[3].style.backgroundColor==="white"){
+            s[3].style.backgroundColor ="green";
+        }
+        
+        text.style.color="blue"
+        let sound = new Audio("./click.wav")
+        sound.play()
+    })
+
+
+    let picker1 =document.querySelector(".p2")
+    picker1.addEventListener("click",()=>{
+        document.body.style.backgroundColor="green"
+        picker1.style.backgroundColor="white"
+
+        let child1 =picker1.previousElementSibling
+        console.log(child1)
+        if(child1.style.backgroundColor==="white"){
+            child1.style.backgroundColor="blue"
+        }
+        
+        let child5 =picker1.nextElementSibling
+        console.log(child1)
+        if(child5.style.backgroundColor==="white"){
+            child5.style.backgroundColor="orange"
+        }
+        
+
+        text.textContent=`Background color changed to green`
+
+        if(s[7].style.backgroundColor==="white"){
+            s[7].style.backgroundColor ="aqua";
+        }
+        
+        text.style.color="green"
+
+        
+        let sound = new Audio("./click.wav")
+        sound.play()
+    })
+
+    let picker2=document.querySelector(".p3")
+    picker2.addEventListener("click",()=>{
+        document.body.style.backgroundColor="#FFA500" 
+        picker2.style.backgroundColor="white"
+        
+
+        let child2= picker2.nextElementSibling
+        if(child2.style.backgroundColor==="white"){
+            child2.style.backgroundColor="aqua"
+        }
+
+
+        let child4= picker2.previousElementSibling
+        if(child4.style.backgroundColor==="white"){
+            child4.style.backgroundColor="green"
+        }
+
+
+        text.textContent=`Background color changed to orange`
+        
+        if(s[1].style.backgroundColor==="white"){
+            s[1].style.backgroundColor="blue"
+        }
+        text.style.color="#FFBF00"
+
+        let sound = new Audio("./click.wav")
+        sound.play()
+        
+    })
+
+    let picker3=document.querySelector(".p4")
+    picker3.addEventListener("click",()=>{
+        document.body.style.backgroundColor="aqua"
+        picker3.style.backgroundColor="white"
+
+
+        let child3=picker3.previousElementSibling
+        if(child3.style.backgroundColor==="white"){
+            child3.style.backgroundColor="#FFA500"
+        }
+
+        text.textContent=`Background color changed to aqua`
+
+       if(s[1].style.backgroundColor==="white"){
+        s[1].style.backgroundColor="blue"
+       }
+
+       if(s[3].style.backgroundColor==="white"){
+        s[3].style.backgroundColor="green"
+       }
+       text.style.color="#0096FF"
+    
+       let sound = new Audio("./click.wav")
+       sound.play()
+    })
+
+    
+
+</script>
+</html>
